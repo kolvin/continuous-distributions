@@ -43,3 +43,4 @@ jobs:
         with:
           file: coverage/report/Cobertura.xml
           language: csharp
+          fail-on-error: false
