@@ -11,10 +11,7 @@ public sealed class LogNormalDistribution : IContinuousDistribution
 
     public LogNormalDistribution(double mu, double sigmaSquared)
     {
-        if (sigmaSquared <= 0)
-        {
-            throw new ArgumentException("sigmaSquared must be greater than 0.", nameof(sigmaSquared));
-        }
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(sigmaSquared);
 
         _mu = mu;
         _sigmaSquared = sigmaSquared;
@@ -32,14 +29,14 @@ public sealed class LogNormalDistribution : IContinuousDistribution
     /// <inheritdoc/>
     public double Pdf(double x)
     {
-        if (x <= 0)
-        {
-            throw new ArgumentException("x must be greater than 0 for the log-normal PDF.", nameof(x));
-        }
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(x);
 
         double lnX = Math.Log(x);
-        double coefficient = 1.0 / (x * Math.Sqrt(2.0 * Math.PI * _sigmaSquared));
+        double coefficient = 1.0 / (x * Math.Sqrt(Math.Tau * _sigmaSquared));
         double exponent = -(Math.Pow(lnX - _mu, 2) / (2.0 * _sigmaSquared));
         return coefficient * Math.Exp(exponent);
     }
+
+    /// <inheritdoc/>
+    public override string ToString() => $"Log-normal(μ={_mu}, σ²={_sigmaSquared})";
 }

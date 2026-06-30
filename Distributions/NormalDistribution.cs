@@ -10,10 +10,7 @@ public sealed class NormalDistribution : IContinuousDistribution
 
     public NormalDistribution(double mu, double sigmaSquared)
     {
-        if (sigmaSquared <= 0)
-        {
-            throw new ArgumentException("sigmaSquared must be greater than 0.", nameof(sigmaSquared));
-        }
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(sigmaSquared);
 
         Mean = mu;
         Variance = sigmaSquared;
@@ -29,8 +26,11 @@ public sealed class NormalDistribution : IContinuousDistribution
     /// <inheritdoc/>
     public double Pdf(double x)
     {
-        double coefficient = 1.0 / (_sigma * Math.Sqrt(2.0 * Math.PI));
+        double coefficient = 1.0 / (_sigma * Math.Sqrt(Math.Tau));
         double exponent = -(Math.Pow(x - Mean, 2) / (2.0 * Variance));
         return coefficient * Math.Exp(exponent);
     }
+
+    /// <inheritdoc/>
+    public override string ToString() => $"Normal(μ={Mean}, σ²={Variance})";
 }
