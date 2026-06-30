@@ -6,30 +6,23 @@ public class LogNormalDistributionTests
 {
     private readonly LogNormalDistribution _dist = new(mu: 3, sigmaSquared: 1.5);
 
-    [Fact]
-    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsZero()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(double.NegativeInfinity)]
+    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsInvalid(double sigmaSquared)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new LogNormalDistribution(mu: 0, sigmaSquared: 0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new LogNormalDistribution(mu: 0, sigmaSquared: sigmaSquared));
     }
 
-    [Fact]
-    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsNegative()
-    {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new LogNormalDistribution(mu: 0, sigmaSquared: -1));
-    }
-
-    [Fact]
-    public void Pdf_ThrowsArgumentOutOfRangeException_WhenXIsZero()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(double.NegativeInfinity)]
+    public void Pdf_ThrowsArgumentOutOfRangeException_WhenXIsInvalid(double x)
     {
         var d = new LogNormalDistribution(mu: 0, sigmaSquared: 1);
-        Assert.Throws<ArgumentOutOfRangeException>(() => d.Pdf(0));
-    }
-
-    [Fact]
-    public void Pdf_ThrowsArgumentOutOfRangeException_WhenXIsNegative()
-    {
-        var d = new LogNormalDistribution(mu: 0, sigmaSquared: 1);
-        Assert.Throws<ArgumentOutOfRangeException>(() => d.Pdf(-1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => d.Pdf(x));
     }
 
     [Fact]
@@ -44,10 +37,13 @@ public class LogNormalDistributionTests
         Assert.Equal(6295.0415, Math.Round(_dist.Variance, 4));
     }
 
-    [Fact]
-    public void Pdf_ReturnsExpectedValue_AtX3Point6()
+    [Theory]
+    [InlineData(1.0, 0.0162)]
+    [InlineData(3.6, 0.0338)]
+    [InlineData(10.0, 0.0277)]
+    public void Pdf_ReturnsExpectedValue(double x, double expected)
     {
-        Assert.Equal(0.0338, Math.Round(_dist.Pdf(3.6), 4));
+        Assert.Equal(expected, Math.Round(_dist.Pdf(x), 4));
     }
 
     [Fact]

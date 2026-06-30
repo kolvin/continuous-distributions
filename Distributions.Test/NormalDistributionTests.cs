@@ -6,16 +6,13 @@ public class NormalDistributionTests
 {
     private readonly NormalDistribution _dist = new(mu: 3, sigmaSquared: 1.5);
 
-    [Fact]
-    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsZero()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(double.NegativeInfinity)]
+    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsInvalid(double sigmaSquared)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new NormalDistribution(mu: 0, sigmaSquared: 0));
-    }
-
-    [Fact]
-    public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsNegative()
-    {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new NormalDistribution(mu: 0, sigmaSquared: -1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new NormalDistribution(mu: 0, sigmaSquared: sigmaSquared));
     }
 
     [Fact]
@@ -30,10 +27,13 @@ public class NormalDistributionTests
         Assert.Equal(1.5000, Math.Round(_dist.Variance, 4));
     }
 
-    [Fact]
-    public void Pdf_ReturnsExpectedValue_AtX3Point6()
+    [Theory]
+    [InlineData(3.0, 0.3257)]
+    [InlineData(3.6, 0.2889)]
+    [InlineData(4.5, 0.1539)]
+    public void Pdf_ReturnsExpectedValue(double x, double expected)
     {
-        Assert.Equal(0.2889, Math.Round(_dist.Pdf(3.6), 4));
+        Assert.Equal(expected, Math.Round(_dist.Pdf(x), 4));
     }
 
     [Fact]
