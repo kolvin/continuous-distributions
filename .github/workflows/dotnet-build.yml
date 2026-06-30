@@ -6,10 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      code-quality: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,10 +33,7 @@ jobs:
           reportgenerator -reports:"coverage/**/coverage.cobertura.xml" -targetdir:"coverage/report" -reporttypes:"MarkdownSummaryGithub;Cobertura"
           cat coverage/report/SummaryGithub.md >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload coverage report
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/upload-code-coverage@v1
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          file: coverage/report/Cobertura.xml
-          language: csharp
-          fail-on-error: false
+          files: coverage/report/Cobertura.xml
