@@ -48,4 +48,28 @@ public class NormalDistributionTests
         var dist = new NormalDistribution<float>(mu: 3f, sigmaSquared: 1.5f);
         Assert.True(float.IsFinite(dist.Pdf(3.6f)));
     }
+
+    [Fact]
+    public void Equals_ReturnsTrue_ForSameParameters()
+    {
+        var a = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        var b = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        Assert.Equal(a, b);
+    }
+
+    [Fact]
+    public void Equals_ReturnsFalse_ForDifferentParameters()
+    {
+        var a = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        var b = new NormalDistribution<double>(mu: 3, sigmaSquared: 2.0);
+        Assert.NotEqual(a, b);
+    }
+
+    [Fact]
+    public void GetHashCode_IsConsistent_ForEqualInstances()
+    {
+        var a = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        var b = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        Assert.Equal(a.GetHashCode(), b.GetHashCode());
+    }
 }
