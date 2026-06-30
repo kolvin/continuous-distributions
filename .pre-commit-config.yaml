@@ -1,0 +1,22 @@
+repos:
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=910"]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.2.0
+    hooks:
+      - id: doctoc
+        args: ["--title=## Contents", "--gitlab"]
+        description: "Generates table of contents for markdown files"
+        exclude: ^(.github/|CHANGELOG.md)
