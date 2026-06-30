@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782860885408,
+  "lastUpdate": 1782861787811,
   "repoUrl": "https://github.com/kolvin/continuous-distributions",
   "entries": {
     "Benchmark": [
@@ -180,6 +180,42 @@ window.BENCHMARK_DATA = {
             "value": 8.552674048713275,
             "unit": "ns",
             "range": "± 0.0046669416575935325"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "15124052+kolvin@users.noreply.github.com",
+            "name": "Calvin Taylor",
+            "username": "kolvin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4d54769ca520f7f0ab1a9a04200b7538e2853e87",
+          "message": "docs: add ELI5 section, merge distribution theory with usage, add resources (#21)",
+          "timestamp": "2026-06-30T20:21:49-03:00",
+          "tree_id": "24c6d03ad4f67c4f5bb9e75feed065538e771b14",
+          "url": "https://github.com/kolvin/continuous-distributions/commit/4d54769ca520f7f0ab1a9a04200b7538e2853e87"
+        },
+        "date": 1782861787622,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.NormalPdf",
+            "value": 7.654096247007449,
+            "unit": "ns",
+            "range": "± 0.01497444497697838"
+          },
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.LogNormalPdf",
+            "value": 8.608970071872076,
+            "unit": "ns",
+            "range": "± 0.02162413299905287"
           }
         ]
       }
