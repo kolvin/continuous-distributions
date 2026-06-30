@@ -1,16 +1,17 @@
+# continuous-distributions
+
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
-- [continuous-distributions](#continuous-distributions)
-    - [Overview](#overview)
-    - [Requirements](#requirements)
-    - [Roadmap](#roadmap)
-    - [Releases](#releases)
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Roadmap](#roadmap)
+- [Releases](#releases)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# continuous-distributions
 
 A C# library of continuous probability distributions.
 
