@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782860401470,
+  "lastUpdate": 1782860885408,
   "repoUrl": "https://github.com/kolvin/continuous-distributions",
   "entries": {
     "Benchmark": [
@@ -144,6 +144,42 @@ window.BENCHMARK_DATA = {
             "value": 7.75386094674468,
             "unit": "ns",
             "range": "± 0.010259127649820059"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "15124052+kolvin@users.noreply.github.com",
+            "name": "Calvin Taylor",
+            "username": "kolvin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "251a8b56f012f2e225443a20031ca387bcecf256",
+          "message": "test: cover object equality and wrong-type paths for IEquatable implementations (#20)",
+          "timestamp": "2026-06-30T20:06:45-03:00",
+          "tree_id": "6117a271dbfdb97ebe2e78328b234d7a7c5f29a5",
+          "url": "https://github.com/kolvin/continuous-distributions/commit/251a8b56f012f2e225443a20031ca387bcecf256"
+        },
+        "date": 1782860885171,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.NormalPdf",
+            "value": 7.687554809663977,
+            "unit": "ns",
+            "range": "± 0.02834363717509068"
+          },
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.LogNormalPdf",
+            "value": 8.552674048713275,
+            "unit": "ns",
+            "range": "± 0.0046669416575935325"
           }
         ]
       }
