@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782859746389,
+  "lastUpdate": 1782860135943,
   "repoUrl": "https://github.com/kolvin/continuous-distributions",
   "entries": {
     "Benchmark": [
@@ -72,6 +72,42 @@ window.BENCHMARK_DATA = {
             "value": 8.581468279872622,
             "unit": "ns",
             "range": "± 0.02545397187530712"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "15124052+kolvin@users.noreply.github.com",
+            "name": "Calvin Taylor",
+            "username": "kolvin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "13b9f197ddefaf49921edcdad8a137b0fc6e7336",
+          "message": "feat: implement IEquatable<T> and DebuggerDisplay on distribution classes (#18)",
+          "timestamp": "2026-06-30T19:54:18-03:00",
+          "tree_id": "0a5f0881e0569bc58be0bf5b590ffbc30ffe0b72",
+          "url": "https://github.com/kolvin/continuous-distributions/commit/13b9f197ddefaf49921edcdad8a137b0fc6e7336"
+        },
+        "date": 1782860135734,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.NormalPdf",
+            "value": 7.675469163518685,
+            "unit": "ns",
+            "range": "± 0.008873782319461159"
+          },
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.LogNormalPdf",
+            "value": 8.625015921317614,
+            "unit": "ns",
+            "range": "± 0.03022846892715081"
           }
         ]
       }
