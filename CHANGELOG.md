@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/kolvin/continuous-distributions/compare/v1.1.0...v1.2.0) (2026-06-30)
+
+
+### Features
+
+* add BenchmarkDotNet project for PDF computation benchmarks ([#14](https://github.com/kolvin/continuous-distributions/issues/14)) ([05afa65](https://github.com/kolvin/continuous-distributions/commit/05afa65f90c333256650b026b4cb263db3a4cde9))
+
 # [1.1.0](https://github.com/kolvin/continuous-distributions/compare/v1.0.1...v1.1.0) (2026-06-30)
 
 
