@@ -1,6 +1,5 @@
 # continuous-distributions
 
-[![codecov](https://codecov.io/gh/kolvin/continuous-distributions/graph/badge.svg)](https://codecov.io/gh/kolvin/continuous-distributions)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
