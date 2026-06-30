@@ -24,13 +24,13 @@ This library provides a shared interface for continuous probability distribution
 
 ## Roadmap
 
-- [ ] `IContinuousDistribution` interface
-- [ ] `NormalDistribution` implementation
-- [ ] `LogNormalDistribution` implementation
-- [ ] Unit, integration and functional test suite
+- [x] `IContinuousDistribution` interface
+- [x] `NormalDistribution` implementation
+- [x] `LogNormalDistribution` implementation
+- [x] Unit, integration and functional test suite
 - [ ] CLI console application
 - [ ] CI pipeline with lint, static analysis, test, and semantic-release
-- [ ] Branch protection and PR workflow
+- [x] Branch protection and PR workflow
 
 ## Releases
 
