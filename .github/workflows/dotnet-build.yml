@@ -1,0 +1,20 @@
+name: .NET Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Hello world
+        run: echo "CI steps will be added as the project grows"
+
+      # TODO: add dotnet restore
+      # TODO: add dotnet build
+      # TODO: add dotnet format --verify-no-changes (lint)
+      # TODO: add dotnet test
