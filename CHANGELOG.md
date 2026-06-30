@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/kolvin/continuous-distributions/compare/v1.2.1...v1.2.2) (2026-06-30)
+
+
+### Bug Fixes
+
+* reorder plugins so exec updates csproj before git commits it ([#16](https://github.com/kolvin/continuous-distributions/issues/16)) ([5ec18ab](https://github.com/kolvin/continuous-distributions/commit/5ec18ab9de0e122ca7a6f005208c47b0fb67eb04))
+
 ## [1.2.1](https://github.com/kolvin/continuous-distributions/compare/v1.2.0...v1.2.1) (2026-06-30)
 
 
