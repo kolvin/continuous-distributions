@@ -1,9 +1,23 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <PackageId>Distributions</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>kolvin</Authors>
+    <Description>A C# library of continuous probability distributions, including Normal and Log-normal.</Description>
+    <PackageTags>statistics;probability;distributions;normal;lognormal</PackageTags>
+    <RepositoryUrl>https://github.com/kolvin/continuous-distributions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
 </Project>
