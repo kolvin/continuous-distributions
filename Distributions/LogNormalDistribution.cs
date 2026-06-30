@@ -1,14 +1,15 @@
 namespace Distributions;
 
-/// <summary>
-/// Log-normal distribution parameterised by μ and σ² of the underlying normal.
-/// </summary>
+/// <summary>Log-normal distribution parameterised by μ and σ² of the underlying normal.</summary>
 public sealed class LogNormalDistribution : IContinuousDistribution
 {
     private readonly double _mu;
 
     private readonly double _sigmaSquared;
 
+    /// <summary>Initializes a new instance of the <see cref="LogNormalDistribution"/> class.</summary>
+    /// <param name="mu">μ parameter of the underlying normal distribution.</param>
+    /// <param name="sigmaSquared">σ² parameter; must be strictly positive.</param>
     public LogNormalDistribution(double mu, double sigmaSquared)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(sigmaSquared);

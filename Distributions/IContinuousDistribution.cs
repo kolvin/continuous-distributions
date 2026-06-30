@@ -1,6 +1,6 @@
 namespace Distributions;
 
-// Interface here defines the rules for all consuming classes
+/// <summary>Contract that every continuous probability distribution must satisfy.</summary>
 public interface IContinuousDistribution
 {
     /// <summary>Gets the expected value of the distribution.</summary>

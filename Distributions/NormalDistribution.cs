@@ -1,13 +1,14 @@
 namespace Distributions;
 
-/// <summary>
-/// Normal (Gaussian) distribution parameterised by mean μ and variance σ².
-/// </summary>
+/// <summary>Normal (Gaussian) distribution parameterised by mean μ and variance σ².</summary>
 public sealed class NormalDistribution : IContinuousDistribution
 {
     // cached so we don't recompute sqrt on every Pdf call
     private readonly double _sigma;
 
+    /// <summary>Initializes a new instance of the <see cref="NormalDistribution"/> class.</summary>
+    /// <param name="mu">Mean (μ) of the distribution.</param>
+    /// <param name="sigmaSquared">Variance (σ²); must be strictly positive.</param>
     public NormalDistribution(double mu, double sigmaSquared)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(sigmaSquared);
