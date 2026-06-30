@@ -29,7 +29,10 @@ format: ## Auto-fix formatting and style issues
 run: ## Run the console app — usage: make run ARGS="<mu> <sigmaSquared> <x>"
 	@$(DOTNET) run --project Distributions.Console -- $(ARGS)
 
+benchmark: ## Run BenchmarkDotNet benchmarks (Release build required)
+	@$(DOTNET) run --project Distributions.Benchmarks --configuration Release
+
 clean: ## Remove build artefacts
 	@$(DOTNET) clean
 
-.PHONY: help restore build build-release test test-release lint format run clean
+.PHONY: help restore build build-release test test-release lint format run benchmark clean

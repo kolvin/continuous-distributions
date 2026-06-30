@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Distributions.Benchmarks/Distributions.Benchmarks.csproj" />
   <Project Path="Distributions.Console/Distributions.Console.csproj" />
   <Project Path="Distributions.Test/Distributions.Test.csproj" />
   <Project Path="Distributions/Distributions.csproj" />
