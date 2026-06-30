@@ -11,10 +11,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Hello world
-        run: echo "CI steps will be added as the project grows"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
 
-      # TODO: add dotnet restore
-      # TODO: add dotnet build
-      # TODO: add dotnet format --verify-no-changes (lint)
-      # TODO: add dotnet test
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Lint
+        run: dotnet format --verify-no-changes --severity warn --no-restore
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal

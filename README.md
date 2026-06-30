@@ -28,8 +28,8 @@ This library provides a shared interface for continuous probability distribution
 - [x] `NormalDistribution` implementation
 - [x] `LogNormalDistribution` implementation
 - [x] Unit, integration and functional test suite
-- [ ] CLI console application
-- [ ] CI pipeline with lint, static analysis, test, and semantic-release
+- [x] CLI console application
+- [x] CI pipeline with lint, static analysis, test, and semantic-release
 - [x] Branch protection and PR workflow
 
 ## Releases
