@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782860135943,
+  "lastUpdate": 1782860401470,
   "repoUrl": "https://github.com/kolvin/continuous-distributions",
   "entries": {
     "Benchmark": [
@@ -108,6 +108,42 @@ window.BENCHMARK_DATA = {
             "value": 8.625015921317614,
             "unit": "ns",
             "range": "± 0.03022846892715081"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "15124052+kolvin@users.noreply.github.com",
+            "name": "Calvin Taylor",
+            "username": "kolvin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3cd4b47b54c5182e4489c5b3bb699980b0dbd0cd",
+          "message": "docs: add installation and usage guide to README (#19)",
+          "timestamp": "2026-06-30T19:58:46-03:00",
+          "tree_id": "b03f3e1dfb2187a4374d41b9ab7c1ad5f82f196b",
+          "url": "https://github.com/kolvin/continuous-distributions/commit/3cd4b47b54c5182e4489c5b3bb699980b0dbd0cd"
+        },
+        "date": 1782860401225,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.NormalPdf",
+            "value": 7.571860335194147,
+            "unit": "ns",
+            "range": "± 0.01306934182724949"
+          },
+          {
+            "name": "Distributions.Benchmarks.PdfBenchmarks.LogNormalPdf",
+            "value": 7.75386094674468,
+            "unit": "ns",
+            "range": "± 0.010259127649820059"
           }
         ]
       }
