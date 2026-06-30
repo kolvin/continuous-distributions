@@ -72,4 +72,19 @@ public class NormalDistributionTests
         var b = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
         Assert.Equal(a.GetHashCode(), b.GetHashCode());
     }
+
+    [Fact]
+    public void Equals_Object_ReturnsFalse_WhenWrongType()
+    {
+        var a = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        Assert.False(a.Equals("not a distribution"));
+    }
+
+    [Fact]
+    public void Equals_Object_ReturnsTrue_WhenBoxedInstanceMatches()
+    {
+        var a = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        object b = new NormalDistribution<double>(mu: 3, sigmaSquared: 1.5);
+        Assert.True(a.Equals(b));
+    }
 }
