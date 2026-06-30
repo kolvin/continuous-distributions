@@ -1,41 +1,47 @@
+using System.Numerics;
+
 namespace Distributions;
 
 /// <summary>Log-normal distribution parameterised by μ and σ² of the underlying normal.</summary>
-public sealed class LogNormalDistribution : IContinuousDistribution
+/// <typeparam name="T">The floating-point type used for all values.</typeparam>
+public sealed class LogNormalDistribution<T> : IContinuousDistribution<T>
+    where T : IFloatingPointIeee754<T>
 {
-    private readonly double _mu;
+    private readonly T _mu;
 
-    private readonly double _sigmaSquared;
+    private readonly T _sigmaSquared;
 
-    /// <summary>Initializes a new instance of the <see cref="LogNormalDistribution"/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref="LogNormalDistribution{T}"/> class.</summary>
     /// <param name="mu">μ parameter of the underlying normal distribution.</param>
     /// <param name="sigmaSquared">σ² parameter; must be strictly positive.</param>
-    public LogNormalDistribution(double mu, double sigmaSquared)
+    public LogNormalDistribution(T mu, T sigmaSquared)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(sigmaSquared);
 
         _mu = mu;
         _sigmaSquared = sigmaSquared;
 
-        Mean = Math.Exp(mu + (sigmaSquared / 2.0));
-        Variance = (Math.Exp(sigmaSquared) - 1.0) * Math.Exp((2.0 * mu) + sigmaSquared);
+        T two = T.CreateChecked(2);
+        Mean = T.Exp(mu + (sigmaSquared / two));
+        Variance = (T.Exp(sigmaSquared) - T.One) * T.Exp((two * mu) + sigmaSquared);
     }
 
     /// <inheritdoc/>
-    public double Mean { get; }
+    public T Mean { get; }
 
     /// <inheritdoc/>
-    public double Variance { get; }
+    public T Variance { get; }
 
     /// <inheritdoc/>
-    public double Pdf(double x)
+    public T Pdf(T x)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(x);
 
-        double lnX = Math.Log(x);
-        double coefficient = 1.0 / (x * Math.Sqrt(Math.Tau * _sigmaSquared));
-        double exponent = -(Math.Pow(lnX - _mu, 2) / (2.0 * _sigmaSquared));
-        return coefficient * Math.Exp(exponent);
+        T two = T.CreateChecked(2);
+        T lnX = T.Log(x);
+        T coefficient = T.One / (x * T.Sqrt(T.Tau * _sigmaSquared));
+        T exponent = -((lnX - _mu) * (lnX - _mu) / (two * _sigmaSquared));
+        return coefficient * T.Exp(exponent);
     }
 
     /// <inheritdoc/>

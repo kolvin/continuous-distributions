@@ -5,10 +5,10 @@ namespace Distributions.Test;
 // Exercises both distributions polymorphically through the interface.
 public class IntegrationTests
 {
-    private static readonly IContinuousDistribution[] _distributions =
+    private static readonly IContinuousDistribution<double>[] _distributions =
     [
-        new NormalDistribution(mu: 0, sigmaSquared: 1),
-        new LogNormalDistribution(mu: 0, sigmaSquared: 1),
+        new NormalDistribution<double>(mu: 0, sigmaSquared: 1),
+        new LogNormalDistribution<double>(mu: 0, sigmaSquared: 1),
     ];
 
     [Fact]
@@ -35,7 +35,7 @@ public class IntegrationTests
     [Fact]
     public void BothDistributions_AreAssignableToInterface()
     {
-        Assert.IsAssignableFrom<IContinuousDistribution>(new NormalDistribution(1, 1));
-        Assert.IsAssignableFrom<IContinuousDistribution>(new LogNormalDistribution(1, 1));
+        Assert.IsAssignableFrom<IContinuousDistribution<double>>(new NormalDistribution<double>(1, 1));
+        Assert.IsAssignableFrom<IContinuousDistribution<double>>(new LogNormalDistribution<double>(1, 1));
     }
 }

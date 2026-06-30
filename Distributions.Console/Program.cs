@@ -17,7 +17,7 @@ if (!double.TryParse(args[0], out double mu) ||
 // each distribution is handled independently so one failure doesn't suppress the other
 try
 {
-    var normal = new NormalDistribution(mu, sigmaSquared);
+    var normal = new NormalDistribution<double>(mu, sigmaSquared);
     Console.WriteLine(
         $"Normal({x};{mu},{sigmaSquared}) = {normal.Pdf(x)} " +
         $"(Mean : {normal.Mean}, Variance : {normal.Variance})");
@@ -29,7 +29,7 @@ catch (ArgumentException ex)
 
 try
 {
-    var logNormal = new LogNormalDistribution(mu, sigmaSquared);
+    var logNormal = new LogNormalDistribution<double>(mu, sigmaSquared);
     Console.WriteLine(
         $"Log-normal({x};{mu},{sigmaSquared}) = {logNormal.Pdf(x)} " +
         $"(Mean : {logNormal.Mean}, Variance : {logNormal.Variance})");

@@ -4,7 +4,7 @@ namespace Distributions.Test;
 
 public class NormalDistributionTests
 {
-    private readonly NormalDistribution _dist = new(mu: 3, sigmaSquared: 1.5);
+    private readonly NormalDistribution<double> _dist = new(mu: 3, sigmaSquared: 1.5);
 
     [Theory]
     [InlineData(0)]
@@ -12,7 +12,7 @@ public class NormalDistributionTests
     [InlineData(double.NegativeInfinity)]
     public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsInvalid(double sigmaSquared)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new NormalDistribution(mu: 0, sigmaSquared: sigmaSquared));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new NormalDistribution<double>(mu: 0, sigmaSquared: sigmaSquared));
     }
 
     [Fact]
@@ -40,5 +40,12 @@ public class NormalDistributionTests
     public void ToString_ReturnsExpectedFormat()
     {
         Assert.Equal("Normal(μ=3, σ²=1.5)", _dist.ToString());
+    }
+
+    [Fact]
+    public void CanBeInstantiated_WithFloatPrecision()
+    {
+        var dist = new NormalDistribution<float>(mu: 3f, sigmaSquared: 1.5f);
+        Assert.True(float.IsFinite(dist.Pdf(3.6f)));
     }
 }
