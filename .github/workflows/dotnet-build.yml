@@ -26,4 +26,10 @@ jobs:
         run: dotnet format --verify-no-changes --severity warn --no-restore
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory coverage
+
+      - name: Coverage summary
+        run: |
+          dotnet tool install -g dotnet-reportgenerator-globaltool --verbosity quiet
+          reportgenerator -reports:"coverage/**/coverage.cobertura.xml" -targetdir:"coverage/report" -reporttypes:MarkdownSummaryGithub
+          cat coverage/report/SummaryGithub.md >> "$GITHUB_STEP_SUMMARY"
