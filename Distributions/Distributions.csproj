@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>Distributions</PackageId>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
     <Authors>kolvin</Authors>
     <Description>A C# library of continuous probability distributions, including Normal and Log-normal.</Description>
     <PackageTags>statistics;probability;distributions;normal;lognormal</PackageTags>

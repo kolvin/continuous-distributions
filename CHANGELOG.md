@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/kolvin/continuous-distributions/compare/v1.3.0...v1.4.0) (2026-06-30)
+
+
+### Features
+
+* implement IEquatable<T> and DebuggerDisplay on distribution classes ([#18](https://github.com/kolvin/continuous-distributions/issues/18)) ([13b9f19](https://github.com/kolvin/continuous-distributions/commit/13b9f197ddefaf49921edcdad8a137b0fc6e7336))
+
 # [1.3.0](https://github.com/kolvin/continuous-distributions/compare/v1.2.2...v1.3.0) (2026-06-30)
 
 
