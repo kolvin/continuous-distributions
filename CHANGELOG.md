@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/kolvin/continuous-distributions/compare/v1.2.2...v1.3.0) (2026-06-30)
+
+
+### Features
+
+* make distributions generic over IFloatingPointIeee754<T> ([#17](https://github.com/kolvin/continuous-distributions/issues/17)) ([a371a65](https://github.com/kolvin/continuous-distributions/commit/a371a6511fbefe759aa0d1f97b908655cf5d0fd0))
+
 ## [1.2.2](https://github.com/kolvin/continuous-distributions/compare/v1.2.1...v1.2.2) (2026-06-30)
 
 
