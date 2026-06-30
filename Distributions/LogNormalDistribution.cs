@@ -1,10 +1,12 @@
+using System.Diagnostics;
 using System.Numerics;
 
 namespace Distributions;
 
 /// <summary>Log-normal distribution parameterised by μ and σ² of the underlying normal.</summary>
 /// <typeparam name="T">The floating-point type used for all values.</typeparam>
-public sealed class LogNormalDistribution<T> : IContinuousDistribution<T>
+[DebuggerDisplay("{ToString(),nq}")]
+public sealed class LogNormalDistribution<T> : IContinuousDistribution<T>, IEquatable<LogNormalDistribution<T>>
     where T : IFloatingPointIeee754<T>
 {
     private readonly T _mu;
@@ -43,6 +45,16 @@ public sealed class LogNormalDistribution<T> : IContinuousDistribution<T>
         T exponent = -((lnX - _mu) * (lnX - _mu) / (two * _sigmaSquared));
         return coefficient * T.Exp(exponent);
     }
+
+    /// <inheritdoc/>
+    public bool Equals(LogNormalDistribution<T>? other) =>
+        other is not null && _mu == other._mu && _sigmaSquared == other._sigmaSquared;
+
+    /// <inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as LogNormalDistribution<T>);
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => HashCode.Combine(_mu, _sigmaSquared);
 
     /// <inheritdoc/>
     public override string ToString() => $"Log-normal(μ={_mu}, σ²={_sigmaSquared})";

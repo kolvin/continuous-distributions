@@ -1,10 +1,12 @@
+using System.Diagnostics;
 using System.Numerics;
 
 namespace Distributions;
 
 /// <summary>Normal (Gaussian) distribution parameterised by mean μ and variance σ².</summary>
 /// <typeparam name="T">The floating-point type used for all values.</typeparam>
-public sealed class NormalDistribution<T> : IContinuousDistribution<T>
+[DebuggerDisplay("{ToString(),nq}")]
+public sealed class NormalDistribution<T> : IContinuousDistribution<T>, IEquatable<NormalDistribution<T>>
     where T : IFloatingPointIeee754<T>
 {
     // cached so we don't recompute sqrt on every Pdf call
@@ -36,6 +38,16 @@ public sealed class NormalDistribution<T> : IContinuousDistribution<T>
         T exponent = -((x - Mean) * (x - Mean) / (two * Variance));
         return coefficient * T.Exp(exponent);
     }
+
+    /// <inheritdoc/>
+    public bool Equals(NormalDistribution<T>? other) =>
+        other is not null && Mean == other.Mean && Variance == other.Variance;
+
+    /// <inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as NormalDistribution<T>);
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => HashCode.Combine(Mean, Variance);
 
     /// <inheritdoc/>
     public override string ToString() => $"Normal(μ={Mean}, σ²={Variance})";
