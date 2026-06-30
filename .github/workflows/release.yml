@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/dotnet-build.yml
+    permissions:
+      contents: read
+      code-quality: write
 
   release:
     needs: build
