@@ -9,8 +9,8 @@ namespace Distributions.Benchmarks;
 [JsonExporterAttribute.Full]
 public class PdfBenchmarks
 {
-    private readonly NormalDistribution _normal = new(mu: 0, sigmaSquared: 1);
-    private readonly LogNormalDistribution _logNormal = new(mu: 0, sigmaSquared: 1);
+    private readonly NormalDistribution<double> _normal = new(mu: 0, sigmaSquared: 1);
+    private readonly LogNormalDistribution<double> _logNormal = new(mu: 0, sigmaSquared: 1);
 
     [Benchmark]
     public double NormalPdf() => _normal.Pdf(1.5);

@@ -9,7 +9,7 @@ public class FunctionalTests
     public void ConsoleOutput_Normal_MatchesExpectedPattern()
     {
         double mu = 3, s2 = 1.5, x = 3.6;
-        var dist = new NormalDistribution(mu, s2);
+        var dist = new NormalDistribution<double>(mu, s2);
         string line = FormatLine("Normal", x, mu, s2, dist);
 
         Assert.StartsWith("Normal(", line, StringComparison.Ordinal);
@@ -21,7 +21,7 @@ public class FunctionalTests
     public void ConsoleOutput_LogNormal_MatchesExpectedPattern()
     {
         double mu = 3, s2 = 1.5, x = 3.6;
-        var dist = new LogNormalDistribution(mu, s2);
+        var dist = new LogNormalDistribution<double>(mu, s2);
         string line = FormatLine("Log-normal", x, mu, s2, dist);
 
         Assert.StartsWith("Log-normal(", line, StringComparison.Ordinal);
@@ -35,7 +35,7 @@ public class FunctionalTests
         string errorMessage = string.Empty;
         try
         {
-            _ = new NormalDistribution(mu: 1, sigmaSquared: -1);
+            _ = new NormalDistribution<double>(mu: 1, sigmaSquared: -1);
         }
         catch (ArgumentException ex)
         {
@@ -52,7 +52,7 @@ public class FunctionalTests
         string errorMessage = string.Empty;
         try
         {
-            var dist = new LogNormalDistribution(mu: 1, sigmaSquared: 1);
+            var dist = new LogNormalDistribution<double>(mu: 1, sigmaSquared: 1);
             _ = dist.Pdf(-5);
         }
         catch (ArgumentException ex)
@@ -72,7 +72,7 @@ public class FunctionalTests
 
         try
         {
-            normalLine = FormatLine("Normal", x, mu, s2, new NormalDistribution(mu, s2));
+            normalLine = FormatLine("Normal", x, mu, s2, new NormalDistribution<double>(mu, s2));
         }
         catch (ArgumentException ex)
         {
@@ -81,7 +81,7 @@ public class FunctionalTests
 
         try
         {
-            logNormalError = FormatLine("Log-normal", x, mu, s2, new LogNormalDistribution(mu, s2));
+            logNormalError = FormatLine("Log-normal", x, mu, s2, new LogNormalDistribution<double>(mu, s2));
         }
         catch (ArgumentException ex)
         {
@@ -97,6 +97,6 @@ public class FunctionalTests
         double x,
         double mu,
         double sigmaSquared,
-        IContinuousDistribution dist)
+        IContinuousDistribution<double> dist)
         => $"{name}({x};{mu},{sigmaSquared}) = {dist.Pdf(x)} (Mean : {dist.Mean}, Variance : {dist.Variance})";
 }

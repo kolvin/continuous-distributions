@@ -4,7 +4,7 @@ namespace Distributions.Test;
 
 public class LogNormalDistributionTests
 {
-    private readonly LogNormalDistribution _dist = new(mu: 3, sigmaSquared: 1.5);
+    private readonly LogNormalDistribution<double> _dist = new(mu: 3, sigmaSquared: 1.5);
 
     [Theory]
     [InlineData(0)]
@@ -12,7 +12,7 @@ public class LogNormalDistributionTests
     [InlineData(double.NegativeInfinity)]
     public void Constructor_ThrowsArgumentOutOfRangeException_WhenSigmaSquaredIsInvalid(double sigmaSquared)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new LogNormalDistribution(mu: 0, sigmaSquared: sigmaSquared));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new LogNormalDistribution<double>(mu: 0, sigmaSquared: sigmaSquared));
     }
 
     [Theory]
@@ -21,7 +21,7 @@ public class LogNormalDistributionTests
     [InlineData(double.NegativeInfinity)]
     public void Pdf_ThrowsArgumentOutOfRangeException_WhenXIsInvalid(double x)
     {
-        var d = new LogNormalDistribution(mu: 0, sigmaSquared: 1);
+        var d = new LogNormalDistribution<double>(mu: 0, sigmaSquared: 1);
         Assert.Throws<ArgumentOutOfRangeException>(() => d.Pdf(x));
     }
 
@@ -50,5 +50,12 @@ public class LogNormalDistributionTests
     public void ToString_ReturnsExpectedFormat()
     {
         Assert.Equal("Log-normal(μ=3, σ²=1.5)", _dist.ToString());
+    }
+
+    [Fact]
+    public void CanBeInstantiated_WithFloatPrecision()
+    {
+        var dist = new LogNormalDistribution<float>(mu: 3f, sigmaSquared: 1.5f);
+        Assert.True(float.IsFinite(dist.Pdf(3.6f)));
     }
 }
