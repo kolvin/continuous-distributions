@@ -602,3 +602,6 @@ $RECYCLE.BIN/
 
 # Code coverage output
 coverage/
+
+# BenchmarkDotNet results
+BenchmarkDotNet.Artifacts/
