@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/kolvin/continuous-distributions/compare/v1.2.0...v1.2.1) (2026-06-30)
+
+
+### Bug Fixes
+
+* use shell var syntax for GITHUB_TOKEN and bootstrap gh-pages branch ([#15](https://github.com/kolvin/continuous-distributions/issues/15)) ([cc5ef17](https://github.com/kolvin/continuous-distributions/commit/cc5ef17abb5d6c59d565c593a88e43146bc2d904)), closes [#pages](https://github.com/kolvin/continuous-distributions/issues/pages)
+
 # [1.2.0](https://github.com/kolvin/continuous-distributions/compare/v1.1.0...v1.2.0) (2026-06-30)
 
 
