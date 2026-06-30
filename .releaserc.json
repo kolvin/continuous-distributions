@@ -11,6 +11,13 @@
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "dotnet pack Distributions/Distributions.csproj --configuration Release -p:Version=${nextRelease.version} --output nupkg",
+        "publishCmd": "dotnet nuget push nupkg/*.nupkg --source github --api-key ${GITHUB_TOKEN}"
+      }
+    ],
     "@semantic-release/github"
   ]
 }
